@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Start a repl for the given container
+#
+#/* vim: set filetype=sh : */
+
+AUTHORIZED_KEYS_PATH="/root/.ssh"
+
+mkdir -p "${AUTHORIZED_KEYS_PATH}"
+
+echo "Using public key: ${PUBLIC_KEY}"
+
+echo "${PUBLIC_KEY}" > "${AUTHORIZED_KEYS_PATH}/authorized_keys"
+
+exec /entrypoint.sh
